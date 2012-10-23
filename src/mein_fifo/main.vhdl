@@ -80,7 +80,7 @@ begin
  end process;
 
  -- sync write logic
- process(clk, rst)
+ process(clk)
  begin
   if rising_edge(clk) then
    if rst = '1' then
@@ -93,7 +93,7 @@ begin
  end process;
 
  -- count logic
- process(rst, clk, wpointer, rpointer)
+ process(clk)
  begin
   if rising_edge(clk) then
    if rst = '1' then
@@ -168,11 +168,8 @@ begin
   ren <= '0';
   wen <= '0';
 
-  if done = 0 then
+  if rst = '0' and done = 0 then
    if count /= FIFO_DEPTH then
-
-    wait until rising_edge(clk);
-    wait until rising_edge(clk);
 
     wen <= '1';
     wdata <= x"20";
