@@ -1,0 +1,70 @@
+function device_open_wrapped(id : string) return netpphandle_t is
+begin
+	assert false report "VHPI" severity failure;
+end function;
+
+function device_set_int(h : netpphandle_t; t : token_t; v : integer) return integer is
+begin
+	assert false report "VHPI" severity failure;
+end function;
+
+function device_gettoken_wrapped(h : netpphandle_t; id : string) return token_t is
+begin
+	assert false report "VHPI" severity failure;
+end function;
+
+procedure device_close(h : netpphandle_t) is
+begin
+	assert false report "VHPI" severity failure;
+end procedure;
+
+function initfb(dev : netpphandle_t; w : integer; h : integer; buftype : integer) return framebuffer_t is
+begin
+	assert false report "VHPI" severity failure;
+end function;
+
+procedure setpixel(fb : framebuffer_t; x : integer; y : integer; pixel : pixel_t) is
+begin
+	assert false report "VHPI" severity failure;
+end procedure;
+
+procedure setfb(fb : framebuffer_t; data : pixarray_t) is
+begin
+	assert false report "VHPI" severity failure;
+end procedure;
+
+procedure updatefb(fb : framebuffer_t) is
+begin
+	assert false report "VHPI" severity failure;
+end procedure;
+
+procedure releasefb(fb : framebuffer_t) is
+begin
+	assert false report "VHPI" severity failure;
+end procedure;
+
+procedure regmap_read(addr : regaddr_t; data : out byte_t) is
+begin
+	assert false report "VHPI" severity failure;
+end procedure;
+
+procedure regmap_write(addr : regaddr_t; data : byte_t) is
+begin
+	assert false report "VHPI" severity failure;
+end procedure;
+
+procedure usleep(cycles : integer) is
+begin
+	assert false report "VHPI" severity failure;
+end procedure;
+
+function get_ptr(dev : netpphandle_t) return handle_t is
+begin
+	assert false report "VHPI" severity failure;
+end function;
+
+procedure set_ptr(h : inout handle_t) is
+begin
+	assert false report "VHPI" severity failure;
+end procedure;
+
