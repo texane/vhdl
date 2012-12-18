@@ -1,0 +1,2 @@
+vhdl work ../src/accum.vhd
+vhdl work ../src/tb.vhd
