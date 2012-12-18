@@ -55,6 +55,28 @@ the generated counter program can then be run (in compilation directory):
 $> ./counter -gui -tclbatch fu.icmd
 
 
+[ ebone stimuli ]
+
+[[ modelsim ]]
+
+tools:
+vlib: modelsim.ini used for mapping
+vmap: map path to library name
+vcom: vhdl compiler
+vlog: verilog compiler
+vsim: simulator
+vtool -i: init basic directory layout
+vdir: list entities
+vdel: delete work library
+
+[[ endpoint functionnal model ]]
+
+a functionnal model can substituted to the actual model
+it is called ebfm0_xxx
+doc available with hlp -doc ebfm
+doc contains simuli language description
+
+
 [ references ]
 
 [[ vhdl faqs ]]
