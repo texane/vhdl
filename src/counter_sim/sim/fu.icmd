@@ -1,0 +1,3 @@
+isim force add {/tb/clk} 1 -value 0 -radix bin -time 500 ns -repeat 1 us
+wave add /tb
+run 300 us

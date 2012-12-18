@@ -1,0 +1,11 @@
+# Crystal Clock - use 32MHz onboard oscillator
+NET "clk" LOC = "P89" | IOSTANDARD = LVCMOS25 | PERIOD = 31.25ns ;
+
+NET "porta<0>" LOC = "P18" ;	
+NET "porta<1>" LOC = "P23" ;  	
+NET "porta<2>" LOC = "P26" ;  	
+NET "porta<3>" LOC = "P33" ;  	
+NET "porta<4>" LOC = "P35" ;  	
+NET "porta<5>" LOC = "P40" ;  	
+NET "porta<6>" LOC = "P53" ;  	
+NET "porta<7>" LOC = "P57" ;  	
