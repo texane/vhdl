@@ -1,2 +1,67 @@
+[ concepts ]
+
+[[ synthetizer inference ]]
+
+electronics is infered from the source and how it is written. it may be
+confusing, but VHDL does not work at the wire level, and part of its work
+is to determine what digital entities a construct maps to, according to
+the libraries used. What has been infered at synthesis is available in the
+SRP report file sections, ie. for instance (hand written incrementing counter):
+
+-- start of fu.srp
+    Related source file is "src/main.vhd".
+    Found 1-bit register for signal <ovf>.
+    Found 8-bit up counter for signal <x>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+-- end of fu.srp
+
+
+[ vhdl language related ]
+
+http://vhdl.org/pub/comp.lang.vhdl/FAQ1.txt
+if x = (others => '1') then -- does not work
+if x = (x'range => '1') then -- ok
+
+
+[ functionnal simulation ]
+
+[[ xilinx tools ]]
+
+simulating at the functionnal level requires the vhdl files to be compiled
+and run under the control of a simulator. the compiled files are package as
+a static library (or at least an object collection), against which a main
+object file is linked. isim is the simulator tool. fuse is the compiler tool,
+relying on the gnu toolchain.
+
+-- start of fu.prj
+vhdl work ../src/counter.vhd
+vhdl work ../src/tb.vhd
+-- end of fu.prj
+
+-- start of fu.sh
+#!/usr/bin/env sh
+fuse -intstyle ise -incremental -o counter -prj fu.prj tb
+-- end of fu.sh
+
+-- start of fu.icmd
+isim force add {/tb/clk} 1 -value 0 -radix bin -time 500 ns -repeat 1 us
+wave add /tb
+run 300 us
+-- end of fu.icmd
+
+the generated counter program can then be run (in compilation directory):
+$> ./counter -gui -tclbatch fu.icmd
+
+
 [ references ]
+
+[[ vhdl faqs ]]
+http://vhdl.org/pub/comp.lang.vhdl
+
+[[ xilinx ]]
+devref.pdf
+
+[[ project, examples, tutorials ]]
 https://instruct1.cit.cornell.edu/Courses/ee475/
