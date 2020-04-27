@@ -11,11 +11,11 @@
 ----  -                                                                   ----
 ----                                                                      ----
 ----  Author:                                                             ----
-----    - Øyvind Harboe, oyvind.harboe zylin.com                          ----
+----    - Ã˜yvind Harboe, oyvind.harboe zylin.com                          ----
 ----                                                                      ----
 ------------------------------------------------------------------------------
 ----                                                                      ----
----- Copyright (c) 2008 Øyvind Harboe <oyvind.harboe zylin.com>           ----
+---- Copyright (c) 2008 Ã˜yvind Harboe <oyvind.harboe zylin.com>           ----
 ----                                                                      ----
 ---- Distributed under the BSD license                                    ----
 ----                                                                      ----
@@ -63,6 +63,7 @@ package txt_util is
 
    -- converts std_logic_vector into a string (binary base)
    function str(slv: std_logic_vector) return string;
+   function str(slv: unsigned) return string;
 
    -- converts boolean into a string
    function str(b: boolean) return string;
@@ -193,6 +194,10 @@ package body txt_util is
       return result;
    end function str;
 
+   function str(slv: unsigned) return string is
+   begin
+      return str(to_integer(slv));
+   end function str;
 
    function str(b: boolean) return string is
    begin
@@ -538,4 +543,3 @@ package body txt_util is
       end loop;               
    end str_write;
 end package body txt_util;
-
